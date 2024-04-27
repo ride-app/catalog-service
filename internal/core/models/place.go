@@ -9,10 +9,9 @@ const (
 )
 
 type Place struct {
-	Id             string
-	DisplayName    string
-	Address        string
-	Location       LatLng
-	DistanceMeters int32
-	Type           PlaceType
+	Id          string
+	DisplayName string
+	Address     string
+	Location    LatLng
+	Type        PlaceType
 }

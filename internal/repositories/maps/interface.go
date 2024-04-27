@@ -12,7 +12,7 @@ type MapsRepository interface {
 		ctx context.Context,
 		logger logger.Logger,
 		searchString string,
-		location models.LatLng,
+		location *models.LatLng,
 		sessionToken string,
 	) ([]models.Place, error)
 }
