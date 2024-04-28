@@ -15,7 +15,7 @@ go_library(
         "//api/ride/catalog/v1alpha1/catalogv1alpha1connect",
         "//config",
         "//internal/api-handlers",
-        "//internal/repositories/places",
+        "//internal/repositories/maps",
         "//third-party",
         "@com_connectrpc_authn//:authn",
         "@com_connectrpc_connect//:connect",

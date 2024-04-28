@@ -13,7 +13,7 @@ go_library(
     deps = [
         "//api/ride/catalog/v1alpha1",
         "//internal/core/models",
-        "//internal/repositories/places",
+        "//internal/repositories/maps",
         "@com_connectrpc_connect//:connect",
         "@com_github_aidarkhanov_nanoid//:nanoid",
         "@com_github_bufbuild_protovalidate_go//:protovalidate-go",
