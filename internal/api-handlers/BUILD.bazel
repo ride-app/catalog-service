@@ -5,7 +5,7 @@ go_library(
     srcs = [
         "get_catalog.go",
         "get_route.go",
-        "search_places.go",
+        "list_places.go",
         "service.go",
     ],
     importpath = "github.com/ride-app/catalog-service/internal/api-handlers",
