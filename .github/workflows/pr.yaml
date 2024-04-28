@@ -1,0 +1,67 @@
+name: PR
+
+permissions: read-all
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    name: Build
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+
+      - name: Cache Bazel
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+        with:
+          path: |
+            ~/.cache/bazel
+          key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
+          restore-keys: |
+            ${{ runner.os }}-bazel-
+
+      # - uses: bufbuild/buf-setup-action@382440cdb8ec7bc25a68d7b4711163d95f7cc3aa # v1.28.1
+      #   with:
+      #     buf_user: ${{ env.BUF_USER }}
+      #     buf_api_token: ${{ secrets.BUF_TOKEN }}
+      #     github_token: ${{ github.token }}
+      - name: Build
+        run: |
+          bazelisk run //:gazelle-update-repos-go
+          bazelisk run //:gazelle
+          bazelisk build //...
+        # env:
+        #   USE_BAZEL_VERSION: 6.4.0
+
+      # - name: Unit Tests
+      #   run: go run github.com/onsi/ginkgo/v2/ginkgo -r --randomize-all --randomize-suites --fail-on-pending --keep-going --cover --coverprofile=cover.json --race --trace --json-report=report.json --timeout=10m -ldflags "-X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=warn" -tags=unit_tests
+
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     flags: unit-tests
+      #     files: ./cover.json,./report.json
+      #     fail_ci_if_error: true
+      #     verbose: true
+
+  compute_impacted_targets:
+    timeout-minutes: 10
+    name: Compute Impacted Targets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+
+      - name: Compute Impacted Targets
+        uses: trunk-io/merge-action@6a6b8568cb140a4d11bb9be876bdcf9c21094e5b # v1
+        with:
+          # Use your Trunk repo or org API token to authenticate impacted targets uploads.
+          # This secret should be provided as a GitHub secret.
+          # See https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions.
+          trunk-token: ${{ secrets.TRUNK_TOKEN }}
