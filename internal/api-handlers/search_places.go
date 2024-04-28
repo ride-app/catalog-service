@@ -40,11 +40,17 @@ func (service *CatalogServiceServer) SearchPlaces(ctx context.Context,
 		sessionToken = *req.Msg.SessionToken
 	}
 
+	var location models.LatLng
+
+	if req.Msg.Location != nil {
+		location = models.LatLngFromProtobuf(req.Msg.Location)
+	}
+
 	places, err := service.mapsRepository.ListPlaces(
 		ctx,
 		log,
 		req.Msg.Query,
-		models.LatLngFromProtobuf(req.Msg.Location),
+		&location,
 		sessionToken,
 	)
 	if err != nil {
@@ -63,7 +69,6 @@ func (service *CatalogServiceServer) SearchPlaces(ctx context.Context,
 			Latitude:  place.Location.Latitude,
 			Longitude: protobufPlace.Location.Longitude,
 		}
-		protobufPlace.DistanceMeters = place.DistanceMeters
 		protobufPlace.Name = fmt.Sprintf("places/%s", place.Id)
 
 		switch place.Type {

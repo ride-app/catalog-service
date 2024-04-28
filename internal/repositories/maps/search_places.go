@@ -13,13 +13,17 @@ func (repo *Impl) ListPlaces(
 	ctx context.Context,
 	logger logger.Logger,
 	searchString string,
-	location models.LatLng,
+	location *models.LatLng,
 	sessionToken string,
 ) ([]models.Place, error) {
 	req := &placespb.AutocompletePlacesRequest{
-		Input:        searchString,
-		SessionToken: sessionToken,
-		LocationBias: &placespb.AutocompletePlacesRequest_LocationBias{
+		Input:                   searchString,
+		SessionToken:            sessionToken,
+		IncludeQueryPredictions: false,
+	}
+
+	if location != nil {
+		req.LocationBias = &placespb.AutocompletePlacesRequest_LocationBias{
 			Type: &placespb.AutocompletePlacesRequest_LocationBias_Circle{
 				Circle: &placespb.Circle{
 					Center: &latlng.LatLng{
@@ -29,12 +33,12 @@ func (repo *Impl) ListPlaces(
 					Radius: 5000,
 				},
 			},
-		},
-		Origin: &latlng.LatLng{
+		}
+
+		req.Origin = &latlng.LatLng{
 			Latitude:  location.Latitude,
 			Longitude: location.Longitude,
-		},
-		IncludeQueryPredictions: false,
+		}
 	}
 
 	res, err := repo.placesApi.AutocompletePlaces(ctx, req)
@@ -51,7 +55,6 @@ func (repo *Impl) ListPlaces(
 		place.Id = prediction.PlaceId
 		place.DisplayName = prediction.StructuredFormat.MainText.Text
 		place.Address = prediction.StructuredFormat.SecondaryText.Text
-		place.DistanceMeters = prediction.DistanceMeters
 
 		places = append(places, place)
 	}

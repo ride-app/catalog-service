@@ -35,8 +35,7 @@ message Place {
   string display_name = 2;
   string address = 3;
   google.type.LatLng location = 4;
-  int32 distance_meters = 5;
-  Type type = 6;
+  Type type = 5;
 
   enum Type {
     TYPE_UNSPECIFIED = 0;
@@ -49,7 +48,7 @@ message SearchPlacesRequest {
   // The field will contain name of the resource requested.
   string query = 1;
 
-  google.type.LatLng location = 2;
+  optional google.type.LatLng location = 2;
 
   optional string session_token = 3;
 }
