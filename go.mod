@@ -15,7 +15,7 @@ require (
 	github.com/dragonfish/go/v2 v2.1.0
 	github.com/google/wire v0.6.0
 	github.com/ilyakaznacheev/cleanenv v1.5.0
-	github.com/onsi/ginkgo/v2 v2.17.1
+	github.com/onsi/ginkgo/v2 v2.17.2
 	go.uber.org/mock v0.4.0
 	golang.org/x/net v0.24.0
 	google.golang.org/api v0.176.1
@@ -45,7 +45,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.3 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
-	github.com/onsi/gomega v1.31.1 // indirect
+	github.com/onsi/gomega v1.33.0 // indirect
 	github.com/stoewer/go-strcase v1.3.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.51.0 // indirect
