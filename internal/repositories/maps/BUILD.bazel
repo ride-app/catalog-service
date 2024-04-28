@@ -1,13 +1,13 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
-    name = "places",
+    name = "maps",
     srcs = [
         "impl.go",
         "interface.go",
         "search_places.go",
     ],
-    importpath = "github.com/ride-app/catalog-service/internal/repositories/places",
+    importpath = "github.com/ride-app/catalog-service/internal/repositories/maps",
     visibility = ["//:__subpackages__"],
     deps = [
         "//config",

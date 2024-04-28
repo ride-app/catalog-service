@@ -10,7 +10,7 @@ import (
 	"github.com/dragonfish/go/v2/pkg/logger"
 	"github.com/ride-app/catalog-service/config"
 	"github.com/ride-app/catalog-service/internal/api-handlers"
-	"github.com/ride-app/catalog-service/internal/repositories/places"
+	"github.com/ride-app/catalog-service/internal/repositories/maps"
 	"github.com/ride-app/catalog-service/third-party"
 )
 
@@ -21,7 +21,7 @@ func InitializeService(logger2 logger.Logger, config2 *config.Config) (*apihandl
 	if err != nil {
 		return nil, err
 	}
-	impl, err := places.New(logger2, config2, client)
+	impl, err := maps.New(logger2, config2, client)
 	if err != nil {
 		return nil, err
 	}

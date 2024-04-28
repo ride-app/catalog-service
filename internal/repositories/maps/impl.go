@@ -1,4 +1,4 @@
-package places
+package maps
 
 import (
 	places "cloud.google.com/go/maps/places/apiv1"

@@ -2,20 +2,20 @@ package apihandlers
 
 import (
 	"github.com/dragonfish/go/v2/pkg/logger"
-	placesRepository "github.com/ride-app/catalog-service/internal/repositories/places"
+	mapsRepository "github.com/ride-app/catalog-service/internal/repositories/maps"
 )
 
 type CatalogServiceServer struct {
-	logger           logger.Logger
-	placesRepository placesRepository.PlacesRepository
+	logger         logger.Logger
+	mapsRepository mapsRepository.MapsRepository
 }
 
 func New(
 	logger logger.Logger,
-	placesRepository placesRepository.PlacesRepository,
+	mapsRepository mapsRepository.MapsRepository,
 ) *CatalogServiceServer {
 	return &CatalogServiceServer{
-		logger:           logger,
-		placesRepository: placesRepository,
+		logger:         logger,
+		mapsRepository: mapsRepository,
 	}
 }

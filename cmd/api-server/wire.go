@@ -7,7 +7,7 @@ import (
 	"github.com/google/wire"
 	"github.com/ride-app/catalog-service/config"
 	apihandlers "github.com/ride-app/catalog-service/internal/api-handlers"
-	placesrepository "github.com/ride-app/catalog-service/internal/repositories/places"
+	mapsrepository "github.com/ride-app/catalog-service/internal/repositories/maps"
 	thirdparty "github.com/ride-app/catalog-service/third-party"
 )
 
@@ -18,10 +18,10 @@ func InitializeService(
 	panic(
 		wire.Build(
 			thirdparty.NewPlacesClient,
-			placesrepository.New,
+			mapsrepository.New,
 			wire.Bind(
-				new(placesrepository.PlacesRepository),
-				new(*placesrepository.Impl),
+				new(mapsrepository.MapsRepository),
+				new(*mapsrepository.Impl),
 			),
 			apihandlers.New,
 		),
