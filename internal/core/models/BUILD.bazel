@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "models",
+    srcs = [
+        "latlng.go",
+        "place.go",
+    ],
+    importpath = "github.com/ride-app/catalog-service/internal/core/models",
+    visibility = ["//:__subpackages__"],
+    deps = ["@org_golang_google_genproto//googleapis/type/latlng"],
+)
