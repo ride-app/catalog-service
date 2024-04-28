@@ -10,6 +10,11 @@ gazelle(
 )
 
 gazelle(
+    name = "update",
+    command = "fix",
+)
+
+gazelle(
     name = "gazelle-update-repos-go",
     args = [
         "-from_file=go.mod",
