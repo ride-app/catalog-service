@@ -1,4 +1,4 @@
-package places
+package maps
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"github.com/ride-app/catalog-service/internal/core/models"
 )
 
-type PlacesRepository interface {
+type MapsRepository interface {
 	ListPlaces(
 		ctx context.Context,
 		logger logger.Logger,

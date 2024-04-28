@@ -1,4 +1,4 @@
-package places
+package maps
 
 import (
 	"context"

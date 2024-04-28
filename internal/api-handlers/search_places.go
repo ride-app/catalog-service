@@ -40,7 +40,7 @@ func (service *CatalogServiceServer) SearchPlaces(ctx context.Context,
 		sessionToken = *req.Msg.SessionToken
 	}
 
-	places, err := service.placesRepository.ListPlaces(
+	places, err := service.mapsRepository.ListPlaces(
 		ctx,
 		log,
 		req.Msg.Query,
