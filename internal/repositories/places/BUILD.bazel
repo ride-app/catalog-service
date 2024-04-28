@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "places",
+    srcs = [
+        "impl.go",
+        "interface.go",
+        "search_places.go",
+    ],
+    importpath = "github.com/ride-app/catalog-service/internal/repositories/places",
+    visibility = ["//:__subpackages__"],
+    deps = [
+        "//config",
+        "//internal/core/models",
+        "@com_github_dragonfish_go_v2//pkg/logger",
+        "@com_google_cloud_go_maps//places/apiv1",
+        "@com_google_cloud_go_maps//places/apiv1/placespb",
+        "@org_golang_google_genproto//googleapis/type/latlng",
+    ],
+)
