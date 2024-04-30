@@ -3,7 +3,7 @@ module github.com/ride-app/catalog-service
 go 1.22.1
 
 // HACK: pin protobuf version to fix build failure
-replace google.golang.org/protobuf => google.golang.org/protobuf v1.32.1-0.20240222085307-11de0a6409ec
+replace google.golang.org/protobuf => google.golang.org/protobuf v1.34.0
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.33.0-20240401165935-b983156c5e99.1
@@ -21,7 +21,7 @@ require (
 	google.golang.org/api v0.176.1
 	google.golang.org/genproto v0.0.0-20240429193739-8cf5692501f6
 	google.golang.org/genproto/googleapis/api v0.0.0-20240429193739-8cf5692501f6
-	google.golang.org/protobuf v1.33.0
+	google.golang.org/protobuf v1.34.0
 )
 
 require (
