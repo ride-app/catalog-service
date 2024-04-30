@@ -37,10 +37,10 @@ jobs:
   #         fail_ci_if_error: true
   #         verbose: true
 
-  cache:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    name: Cache Bazel
+    name: Build
     steps:
       - name: Checkout Code
         uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
