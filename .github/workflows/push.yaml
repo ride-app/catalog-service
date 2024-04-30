@@ -54,7 +54,10 @@ jobs:
             ${{ runner.os }}-bazel-
 
       - name: Build
-        run: bazelisk build //...
+        run: |
+          bazelisk run //:gazelle-update-repos-go
+          bazelisk run //:gazelle
+          bazelisk build //...
 
   convert_todo:
     runs-on: ubuntu-latest

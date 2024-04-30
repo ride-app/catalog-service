@@ -33,4 +33,7 @@ jobs:
       # - name: Build protobuf
       #   run: buf generate
       - name: Build
-        run: bazelisk build //...
+        run: |
+          bazelisk run //:gazelle-update-repos-go
+          bazelisk run //:gazelle
+          bazelisk build //...
