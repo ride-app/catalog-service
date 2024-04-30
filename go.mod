@@ -2,9 +2,6 @@ module github.com/ride-app/catalog-service
 
 go 1.22.1
 
-// HACK: pin protobuf version to fix build failure
-replace google.golang.org/protobuf => google.golang.org/protobuf v1.32.1-0.20240222085307-11de0a6409ec
-
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.33.0-20240401165935-b983156c5e99.1
 	cloud.google.com/go/maps v1.7.2
@@ -21,7 +18,7 @@ require (
 	google.golang.org/api v0.176.1
 	google.golang.org/genproto v0.0.0-20240429193739-8cf5692501f6
 	google.golang.org/genproto/googleapis/api v0.0.0-20240429193739-8cf5692501f6
-	google.golang.org/protobuf v1.33.0
+	google.golang.org/protobuf v1.34.0
 )
 
 require (
@@ -35,7 +32,7 @@ require (
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
+	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
@@ -45,7 +42,6 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.3 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
-	github.com/onsi/gomega v1.33.0 // indirect
 	github.com/stoewer/go-strcase v1.3.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.51.0 // indirect
