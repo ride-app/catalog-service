@@ -11,6 +11,8 @@ cloud.google.com/go/compute/metadata v0.3.0 h1:Tz+eQXMEqDIKRsmY3cHTL6FVaynIjX2Qx
 cloud.google.com/go/compute/metadata v0.3.0/go.mod h1:zFmK7XCadkQkj6TtorcaGlCW1hT1fIilQDwofLpJ20k=
 cloud.google.com/go/maps v1.7.2 h1:r8I8GHUnZzaMn06ZDE1dtVTBQMep3nXIho/13uEQd80=
 cloud.google.com/go/maps v1.7.2/go.mod h1:sOOfVijxTNG37oZVQbGqstntCyIuRD8X2MRnNUPAWdY=
+cloud.google.com/go/maps v1.7.3 h1:FHj/3v2rGBOP1ktPAm4IsM4T0l6L8Hhh9/TenXJpvlE=
+cloud.google.com/go/maps v1.7.3/go.mod h1:Jfe+h0i3YdG8Cc0wuNI+Q+WglTt7YnQ3PbKCqpBdTwc=
 connectrpc.com/authn v0.1.0 h1:m5weACjLWwgwcjttvUDyTPICJKw74+p2obBVrf8hT9E=
 connectrpc.com/authn v0.1.0/go.mod h1:AwNZK/KYbqaJzRYadTuAaoz6sYQSPdORPqh1TOPIkgY=
 connectrpc.com/connect v1.16.1 h1:rOdrK/RTI/7TVnn3JsVxt3n028MlTRwmK5Q4heSpjis=
