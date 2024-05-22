@@ -4,7 +4,7 @@ go 1.22.1
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.34.1-20240508200655-46a4cf4ba109.1
-	cloud.google.com/go/maps v1.9.0
+	cloud.google.com/go/maps v1.10.0
 	connectrpc.com/authn v0.1.0
 	connectrpc.com/connect v1.16.2
 	github.com/aidarkhanov/nanoid v1.0.8
