@@ -12,7 +12,7 @@ require (
 	github.com/dragonfish/go/v2 v2.1.0
 	github.com/google/wire v0.6.0
 	github.com/ilyakaznacheev/cleanenv v1.5.0
-	github.com/onsi/ginkgo/v2 v2.18.0
+	github.com/onsi/ginkgo/v2 v2.19.0
 	go.uber.org/mock v0.4.0
 	golang.org/x/net v0.25.0
 	google.golang.org/api v0.181.0
