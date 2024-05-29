@@ -27,6 +27,8 @@ cloud.google.com/go/maps v1.9.0 h1:4HKoE0MTm2Am4FNnEpioue0CUPzRudYn1aAA4bJ8LSI=
 cloud.google.com/go/maps v1.9.0/go.mod h1:lbl3+NkLJ88H4qv3rO8KWOHOYhJiOwsqHOAXMHb9seA=
 cloud.google.com/go/maps v1.10.0 h1:0VHFOkgid3256RAwa+RmPRcnAOcqrcXFM4CiFprrXHI=
 cloud.google.com/go/maps v1.10.0/go.mod h1:lbl3+NkLJ88H4qv3rO8KWOHOYhJiOwsqHOAXMHb9seA=
+cloud.google.com/go/maps v1.11.0 h1:+//LeUr5ARVau1wVsxLkLnFtYviq9YFS+fB/mhfAOGQ=
+cloud.google.com/go/maps v1.11.0/go.mod h1:XcSsd8lg4ZhLPCtJ2YHcu/xLVePBzZOlI7GmR2cRCws=
 connectrpc.com/authn v0.1.0 h1:m5weACjLWwgwcjttvUDyTPICJKw74+p2obBVrf8hT9E=
 connectrpc.com/authn v0.1.0/go.mod h1:AwNZK/KYbqaJzRYadTuAaoz6sYQSPdORPqh1TOPIkgY=
 connectrpc.com/connect v1.16.1 h1:rOdrK/RTI/7TVnn3JsVxt3n028MlTRwmK5Q4heSpjis=
@@ -329,6 +331,8 @@ google.golang.org/genproto/googleapis/rpc v0.0.0-20240515191416-fc5f0ca64291 h1:
 google.golang.org/genproto/googleapis/rpc v0.0.0-20240515191416-fc5f0ca64291/go.mod h1:EfXuqaE1J41VCDicxHzUDm+8rk+7ZdXzHV0IhO/I6s0=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20240521202816-d264139d666e h1:Elxv5MwEkCI9f5SkoL6afed6NTdxaGoAo39eANBwHL8=
 google.golang.org/genproto/googleapis/rpc v0.0.0-20240521202816-d264139d666e/go.mod h1:EfXuqaE1J41VCDicxHzUDm+8rk+7ZdXzHV0IhO/I6s0=
+google.golang.org/genproto/googleapis/rpc v0.0.0-20240528184218-531527333157 h1:Zy9XzmMEflZ/MAaA7vNcoebnRAld7FsPW1EeBB7V0m8=
+google.golang.org/genproto/googleapis/rpc v0.0.0-20240528184218-531527333157/go.mod h1:EfXuqaE1J41VCDicxHzUDm+8rk+7ZdXzHV0IhO/I6s0=
 google.golang.org/grpc v1.19.0/go.mod h1:mqu4LbDTu4XGKhr4mRzUsmM4RtVoemTSY81AxZiDr8c=
 google.golang.org/grpc v1.23.0/go.mod h1:Y5yQAOtifL1yxbo5wqy6BxZv8vAUGQwXBOALyacEbxg=
 google.golang.org/grpc v1.25.1/go.mod h1:c3i+UQWmh7LiEpx4sFZnkU36qjEYZ0imhYfXVyQciAY=
