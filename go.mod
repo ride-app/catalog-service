@@ -3,7 +3,7 @@ module github.com/ride-app/catalog-service
 go 1.22.1
 
 require (
-	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.34.1-20240508200655-46a4cf4ba109.1
+	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.34.2-20240508200655-46a4cf4ba109.2
 	cloud.google.com/go/maps v1.11.1
 	connectrpc.com/authn v0.1.0
 	connectrpc.com/connect v1.16.2
