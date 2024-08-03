@@ -4,23 +4,13 @@ permissions: read-all
 on:
   push:
     paths:
-      - api/**/*.proto
+      - api/**
     branches:
       - main
 
 jobs:
   buf-push:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-
-      - uses: bufbuild/buf-setup-action@aceb106d2419c4cff48863df90161d92decb8591 # v1.35.1
-        with:
-          github_token: ${{ github.token }}
-
-      - uses: bufbuild/buf-push-action@v1
-        with:
-          buf_token: ${{ secrets.BUF_TOKEN }}
-          input: api
+    uses: dragonfish/workflows/.github/workflows/buf-push.yaml@main
+    with:
+      buf-mod-dir: api
+    secrets: inherit

@@ -1,14 +1,21 @@
-# trunk-ignore-all(trivy/DS026)
-# syntax=docker/dockerfile:1@sha256:ac85f380a63b13dfcefa89046420e1781752bab202122f8f50032edf31be0021
+# syntax=docker/dockerfile:1@sha256:fe40cf4e92cd0c467be2cfc30657a680ae2398318afd50b0c80585784c604f28
+
+# Create .netrc file for private go module
+# FROM bufbuild/buf:1.25.1 as buf
+
+# ARG BUF_USERNAME ""
+
+# SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+# RUN --mount=type=secret,id=BUF_TOKEN \
+#   buf registry login --username=$BUF_USERNAME --token-stdin < /run/secrets/BUF_TOKEN
 
 # Build go binary
-FROM golang:1.22-alpine@sha256:0d3653dd6f35159ec6e3d10263a42372f6f194c3dea0b35235d72aabde86486e as build
-
-RUN groupadd -r nonroot && useradd -r -g nonroot nonroot
-
-USER nonroot
+FROM golang:1.22-alpine@sha256:0d3653dd6f35159ec6e3d10263a42372f6f194c3dea0b35235d72aabde86486e AS build
 
 WORKDIR /go/src/app
+
+# COPY --from=buf /root/.netrc /root/.netrc
+# ENV GOPRIVATE=buf.build/gen/go
 
 COPY go.mod go.sum /
 RUN go mod download && go mod verify

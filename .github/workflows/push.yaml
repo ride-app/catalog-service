@@ -28,12 +28,14 @@ jobs:
   #       run: bazelisk coverage --combined_report=lcov //...
   #       continue-on-error: true
 
+  #     - run: cp $(bazelisk info output_path)/_coverage/_coverage_report.dat ./
+
   #     - name: Upload coverage to Codecov
-  #       uses: codecov/codecov-action@e0b68c6749509c5f83f984dd99a76a1c1a231044 # v4
+  #       uses: codecov/codecov-action@0cfda1dd0a4ad9efc75517f399d859cd1ea4ced1 # v4
   #       with:
   #         token: ${{ secrets.CODECOV_TOKEN }}
   #         flags: unit-tests
-  #         # files: ./cover.json,./report.json
+  #         files: ./_coverage_report.dat
   #         fail_ci_if_error: true
   #         verbose: true
 
@@ -41,28 +43,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     name: Build
+    env:
+      TEST_TAG: ride/payments-service
     steps:
       - name: Checkout Code
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
-      - uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db # v3
+
+      - name: Build and export cache
+        uses: docker/build-push-action@5176d81f87c23d6fc96624dfdbcd9f3830bbe445 # v6
         with:
-          path: |
-            ~/.cache/bazel
-          key: ${{ runner.os }}-bazel-${{ hashFiles('WORKSPACE','MODULE.bazel') }}
-          restore-keys: |
-            ${{ runner.os }}-bazel-
-
-      - name: Build
-        run: |
-          bazelisk run //:gazelle-update-repos-go
-          bazelisk run //:gazelle
-          bazelisk build //...
-
-  convert_todo:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    name: Convert TODOs to Issues
-    steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - uses: alstr/todo-to-issue-action@4120fdbb02461dd1abf18756a7464b8e45347863 # v4
+          load: true
+          tags: ${{ env.TEST_TAG }}
+          context: .
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
