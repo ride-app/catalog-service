@@ -67,9 +67,19 @@ message Route {
   int32 eta_seconds = 5;
 }
 
-message GetRouteRequest {}
+message GetRouteRequest {
+  Location origin = 1;
+  Location destination = 2;
 
-message GetRouteResponse {}
+  message Location {
+    oneof location {
+      google.type.LatLng coordinates = 1;
+      string place = 2;
+    }
+  }
+}
+
+message GetRouteResponse { Route route = 1; }
 
 message Catalog {
   repeated Option options = 1;
