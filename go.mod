@@ -15,14 +15,14 @@ require (
 	github.com/onsi/ginkgo/v2 v2.20.1
 	go.uber.org/mock v0.4.0
 	golang.org/x/net v0.28.0
-	google.golang.org/api v0.193.0
+	google.golang.org/api v0.194.0
 	google.golang.org/genproto v0.0.0-20240823204242-4ba0660f739c
 	google.golang.org/genproto/googleapis/api v0.0.0-20240823204242-4ba0660f739c
 	google.golang.org/protobuf v1.34.2
 )
 
 require (
-	cloud.google.com/go/auth v0.9.0 // indirect
+	cloud.google.com/go/auth v0.9.1 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.4 // indirect
 	cloud.google.com/go/compute/metadata v0.5.0 // indirect
 	github.com/BurntSushi/toml v1.3.2 // indirect
